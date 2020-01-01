@@ -10,10 +10,17 @@
 #ifndef _GK_GETOPT_H_
 #define _GK_GETOPT_H_
 
+#ifndef METIS_GKLIB_API
+  #if _MSC_VER
+    #define METIS_GKLIB_API __declspec(dllimport)
+  #else
+    #define METIS_GKLIB_API
+  #endif
+#endif
 
 /* Externals from getopt.c */
-extern char *gk_optarg;
-extern int gk_optind;
+METIS_GKLIB_API extern char *gk_optarg;
+METIS_GKLIB_API extern int gk_optind;
 extern int gk_opterr;
 extern int gk_optopt;
 
